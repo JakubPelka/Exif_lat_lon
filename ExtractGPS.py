@@ -10,7 +10,13 @@ from pillow_heif import register_heif_opener
 
 register_heif_opener()
 
-SUPPORTED_EXTENSIONS = {".heic", ".heif"}
+SUPPORTED_EXTENSIONS = {
+    ".heic", ".heif",
+    ".jpg", ".jpeg",
+    ".tif", ".tiff",
+    ".webp"
+}
+
 START_DIR = Path.cwd()
 
 
@@ -117,12 +123,12 @@ def write_geojson(rows, geojson_path):
 class App:
     def __init__(self, root):
         self.root = root
-        self.root.title("HEIC EXIF till CSV och GeoJSON")
+        self.root.title("Bilders GPS till CSV och GeoJSON")
         self.root.geometry("780x300")
         self.root.minsize(720, 260)
 
         self.input_folder = tk.StringVar(value=str(START_DIR))
-        self.output_csv = tk.StringVar(value=str(START_DIR / "heic_gps.csv"))
+        self.output_csv = tk.StringVar(value=str(START_DIR / "image_gps.csv"))
 
         self.build_ui()
 
@@ -139,7 +145,7 @@ class App:
         ttk.Button(main, text="Välj fil", command=self.pick_output).grid(row=3, column=1, sticky="ew")
 
         info_text = (
-            "Skriptet söker efter HEIC/HEIF-bilder i vald mapp och undermappar.\n"
+            "Skriptet söker efter vanliga bildformat i vald mapp och undermappar.\n"
             "Det sparar både CSV och GeoJSON med samma filnamnsbas."
         )
         ttk.Label(main, text=info_text, justify="left").grid(row=4, column=0, columnspan=2, sticky="w", pady=(14, 10))
@@ -159,7 +165,7 @@ class App:
 
     def pick_folder(self):
         folder = filedialog.askdirectory(
-            title="Välj mapp med HEIC-bilder",
+            title="Välj mapp med bilder",
             initialdir=str(START_DIR)
         )
         if folder:
@@ -169,7 +175,7 @@ class App:
         file_path = filedialog.asksaveasfilename(
             title="Välj namn på CSV-fil",
             initialdir=str(START_DIR),
-            initialfile="heic_gps.csv",
+            initialfile="image_gps.csv",
             defaultextension=".csv",
             filetypes=[("CSV-filer", "*.csv")]
         )
@@ -208,7 +214,7 @@ class App:
         self.log(f"Antal bilder med GPS hittade: {len(rows)}")
 
         if not rows:
-            messagebox.showwarning("Ingen data", "Inga HEIC-bilder med GPS-data hittades.")
+            messagebox.showwarning("Ingen data", "Inga bildfiler med GPS-data hittades.")
             return
 
         write_csv(rows, csv_file)
