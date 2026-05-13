@@ -83,7 +83,7 @@ pip install pillow pillow-heif
 Starta skriptet:
 
 ```bash
-python heic_exif_to_csv_geojson.py
+python ExtractGPS.py
 ```
 
 ## Så används verktyget
@@ -158,7 +158,3 @@ Vid behov kan verktyget senare byggas ut med till exempel:
 * stöd för JPG/JPEG/TIFF
 * drag-and-drop av mapp
 * direkt export till punktlager för GIS-flöden
-
-## Licens
-
-Välj själv licens för projektet, till exempel MIT.
