@@ -1,0 +1,9 @@
+# Normalize text files to LF in the repository
+* text=auto eol=lf
+
+# Treat common generated/export formats as text when intentionally committed
+*.csv text eol=lf
+*.geojson text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.py text eol=lf

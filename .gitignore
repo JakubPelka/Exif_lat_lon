@@ -1,0 +1,93 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Local configuration and secrets
+.env
+.env.*
+*.env
+secrets.*
+*.key
+*.pem
+*.token
+
+# Local input/output data - do not commit private images or generated results
+/indata/
+/input/
+/output/
+/outputs/
+/exports/
+/results/
+
+# Temporary migration/work folders
+/TEMP/
+/temp/
+/tmp/
+
+# Archives/backups
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.bak
+*.backup
+*_backup*/
+backup*/
+
+# Image and RAW files - avoid accidental publication of private photo metadata
+*.jpg
+*.jpeg
+*.jpe
+*.heic
+*.heif
+*.tif
+*.tiff
+*.webp
+*.png
+*.dng
+*.cr2
+*.cr3
+*.nef
+*.nrw
+*.arw
+*.srf
+*.sr2
+*.rw2
+*.orf
+*.raf
+*.pef
+*.ptx
+*.srw
+*.3fr
+*.erf
+*.kdc
+*.dcr
+*.mef
+*.mos
+*.mrw
+*.rwl
+*.iiq
+
+# Keep documentation-only sample_data folder
+!sample_data/
+!sample_data/README.md
+!sample_data/.gitkeep
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
